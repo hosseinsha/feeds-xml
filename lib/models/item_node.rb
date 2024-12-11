@@ -3,10 +3,10 @@
 class ItemNode
   attr_reader :id, :title, :description
 
-  def initialize(node:, namespace:)
-    @id = extract_field(node, 'g:id', namespace)
-    @title = extract_field(node, 'title', namespace)
-    @description = extract_field(node, 'description', namespace)
+  def initialize(node:, namespace:, mapping: Mapping.new)
+    @id = extract_field(node, mapping.id, namespace)
+    @title = extract_field(node, mapping.title, namespace)
+    @description = extract_field(node, mapping.description, namespace)
 
     validate!
   end
